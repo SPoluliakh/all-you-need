@@ -10,7 +10,7 @@ export const WeatherPage = () => {
   const [locationEroor, setLocationEroor] = useState(null);
   const [status, setStatus] = useState('idle');
   const [weather, setWeather] = useState('');
-
+  console.log(locationEroor);
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       position => {
