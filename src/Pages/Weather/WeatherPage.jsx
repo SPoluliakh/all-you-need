@@ -5,6 +5,7 @@ import {
   getWeatherByCityName,
   getWeatherByGeoPosition,
 } from '../../Utils/weatherApi';
+
 export const WeatherPage = () => {
   const [cityName, setCityName] = useState('');
   const [locationEroor, setLocationEroor] = useState(null);
@@ -54,10 +55,17 @@ export const WeatherPage = () => {
       });
   };
 
-  // if (!weather) return;
   return (
     <>
       <h1>Weather 🌤</h1>
+
+      {locationEroor && (
+        <h2>
+          Please enable geolocation to automatically provide weather for your
+          region
+        </h2>
+      )}
+
       <form onSubmit={handleSubmit}>
         <label>
           <input
@@ -77,7 +85,14 @@ export const WeatherPage = () => {
           <p>
             Location: {weather.name}, {weather.sys.country}
           </p>
-          <p>Tempreture: {Math.round(weather.main.temp)}</p>
+          <div>
+            <img
+              src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+              alt=""
+            />
+            <p>Tempreture: {Math.round(weather.main.temp)}</p>
+          </div>
+
           <p>
             Feels_like:
             {Math.round(weather.main.temp)}
