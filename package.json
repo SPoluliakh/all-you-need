@@ -1,8 +1,8 @@
 {
-  "name": "all-you-need",
+  "name": "helper",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://SPoluliakh.github.io/all-you-need/",
+  "homepage": "https://SPoluliakh.github.io/helper/",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -58,11 +58,11 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SPoluliakh/all-you-need.git"
+    "url": "git+https://github.com/SPoluliakh/helper.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SPoluliakh/all-you-need/issues"
+    "url": "https://github.com/SPoluliakh/helper/issues"
   }
 }

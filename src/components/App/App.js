@@ -11,12 +11,20 @@ const WeatherPage = lazy(() =>
   }))
 );
 
+const CurrencyExchangePage = lazy(() =>
+  import('../../Pages/CurensyExchange/CurensyExchangePage').then(module => ({
+    ...module,
+    default: module.CurrencyExchangePage,
+  }))
+);
+
 export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="weather" element={<WeatherPage />} />
+        <Route path="currency-exchange" element={<CurrencyExchangePage />} />
       </Route>
     </Routes>
   );
