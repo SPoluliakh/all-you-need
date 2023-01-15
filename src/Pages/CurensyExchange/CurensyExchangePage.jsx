@@ -123,7 +123,7 @@ export const CurrencyExchangePage = () => {
         onChange={setBuyCurrency} // Responsible for currency to buy selected manually
         amount={amountToBuy}
         onValueChange={toBuyHandleChange}
-        type={'Buy: '}
+        type={'Get: '}
         handleInputChange={handBuyleInputChange}
       />
     </SC.Wrap>

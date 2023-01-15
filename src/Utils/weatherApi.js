@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const URL_ADRESS = 'https://api.openweathermap.org/data/2.5/weather';
-const URL_KEY = 'f00c38e0279b7bc85480c3fe775d518c';
+const URL_KEY = 'b3ca09d4ba07492c8255e30aa5bcf2bb';
 
 export const getWeatherByCityName = async (city, measure = 'metric') => {
   const params = new URLSearchParams({

@@ -6,7 +6,7 @@ export const Navigation = () => {
       <nav>
         <SC.Link to="/">Home</SC.Link>
         <SC.Link to="weather">Weather</SC.Link>
-        <SC.Link to="currency-exchange">Currency-Exchange</SC.Link>
+        <SC.Link to="currency-converter">Currency-Converter</SC.Link>
       </nav>
     </>
   );

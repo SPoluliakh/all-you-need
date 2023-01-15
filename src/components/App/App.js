@@ -24,7 +24,7 @@ export const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="weather" element={<WeatherPage />} />
-        <Route path="currency-exchange" element={<CurrencyExchangePage />} />
+        <Route path="currency-converter" element={<CurrencyExchangePage />} />
       </Route>
     </Routes>
   );

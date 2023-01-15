@@ -30,7 +30,7 @@ export const Exchange = ({
             type="number"
             value={amount}
             onChange={onValueChange}
-            min={0}
+            min={1}
           />
         </SC.ExchangeLabel>
         <SC.ExchangeSelect
@@ -45,7 +45,7 @@ export const Exchange = ({
         </SC.ExchangeSelect>
         <SC.Input
           type="text"
-          placeholder="UAH..."
+          placeholder=" 🔎 "
           onChange={onHandleInputChange}
         />
       </SC.ExchangeSection>
