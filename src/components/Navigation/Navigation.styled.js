@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 export const Link = styled(NavLink)`
   position: relative;
   text-decoration: none;
-  color: ${p => p.theme.colors.linkHover};
   text-shadow: ${p => p.theme.shadows.textShadow};
   transition: 300ms linear;
   font-size: ${p => p.theme.fontSizes.m}px;
@@ -19,11 +18,7 @@ export const Link = styled(NavLink)`
   }
 
   &.active {
-    color: ${p => p.theme.colors.linkActive};
-  }
-  :hover:not(.active),
-  :focus:not(.active) {
-    color: ${p => p.theme.colors.linkHover};
+    color: ${p => p.theme.colors.headerBcg};
   }
 
   &::after {
@@ -33,18 +28,19 @@ export const Link = styled(NavLink)`
     left: 0;
     width: 100%;
     height: 1px;
-    background-color: ${p => p.theme.colors.linkHover};
+    background-color: ${p => p.theme.colors.logoColor};
     scale: 0;
     transition: 300ms linear;
   }
 
   :hover::after,
   :focus::after {
+    background-color: ${p => p.theme.colors.headerBcg};
     scale: 1;
   }
 
   &.active::after {
-    background-color: ${p => p.theme.colors.linkActive};
+    background-color: ${p => p.theme.colors.headerBcg};
     scale: 1;
   }
 `;

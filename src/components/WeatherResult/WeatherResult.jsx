@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import { WeatherForm } from '../../components/WetherForm/WeatherForm';
 import {
@@ -7,11 +8,13 @@ import {
 } from '../../Utils/weatherApi';
 
 export const WeatherResult = () => {
-  const [cityName, setCityName] = useState('');
   const [locationEroor, setLocationEroor] = useState(null);
   const [status, setStatus] = useState('idle');
   const [weather, setWeather] = useState('');
-  console.log(locationEroor);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const query = searchParams.get('city') ?? '';
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       position => {
@@ -38,13 +41,13 @@ export const WeatherResult = () => {
 
   const handlcityNameChange = evt => {
     const { value } = evt.target;
-    setCityName(value);
+    setSearchParams(value !== '' ? { city: value } : {});
   };
   console.log(weather);
   const handleSubmit = evt => {
     evt.preventDefault();
     setStatus('pending');
-    getWeatherByCityName(cityName)
+    getWeatherByCityName(query)
       .then(resalt => {
         setWeather(resalt);
         setStatus('fulfilled');
@@ -54,6 +57,7 @@ export const WeatherResult = () => {
         console.log(err);
       });
   };
+
   return (
     <>
       {locationEroor && (
@@ -63,7 +67,7 @@ export const WeatherResult = () => {
         </h2>
       )}
       <WeatherForm
-        name={cityName}
+        name={query}
         onChange={handlcityNameChange}
         onSubmit={handleSubmit}
       />
