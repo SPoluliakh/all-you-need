@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FcCalculator, FcCurrencyExchange } from 'react-icons/fc';
 import { fetch } from '../../Utils/currencyApi';
 import { Exchange } from '../../components/Exchange/Exchange';
@@ -6,13 +6,15 @@ import { CurrencyRate } from '../../components/CurrencyRate/CurrencyRates';
 import * as SC from './CurensyExchangePage.styled';
 
 export const CurrencyExchangePage = () => {
-  const [currencyOptions, setCurrencyOptions] = useState([]); // Responsible for avaible currency options
+  const [currencyOptionsToSell, setCurrencyOptionstoSell] = useState([]); // Responsible for avaible currency options
+  const [currencyOptionsToBuy, setCurrencyOptionsToBuy] = useState([]); // Responsible for avaible currency options
   const [maineCurrency, setMaineCurrency] = useState([]); // Responsible for main currency rate wich imagine in header info
   const [sellCurrency, setSellCurrency] = useState(); // Responsible for currency for sell
   const [buyCurrency, setBuyCurrency] = useState(); // Responsible for currency for buy
   const [exchangeRate, setExchangeRate] = useState(0); // Responsible for exchange rate
   const [amount, setAmount] = useState(1); // Responsible for amount manually selected
   const [isAmount, setIsAmount] = useState(true); // Responsible for toggle sell or buy amount selected mannualy
+  const optionsFreez = useRef();
 
   let amountToSell;
   let amountToBuy;
@@ -29,7 +31,9 @@ export const CurrencyExchangePage = () => {
     try {
       fetch().then(data => {
         const options = Object.keys(data.rates);
-        setCurrencyOptions([...options]);
+        setCurrencyOptionstoSell([...options]);
+        setCurrencyOptionsToBuy([...options]);
+        optionsFreez.current = [...options];
         setMaineCurrency([
           data.rates.UAH.toFixed(2),
           data.rates.EUR.toFixed(2),
@@ -70,16 +74,29 @@ export const CurrencyExchangePage = () => {
     setIsAmount(false);
   };
 
-  // const handleInputChange = name => {
-  //   const value = name.toLowerCase();
-  //   const queres = currencyOptions.find(query => query.toLowerCase() === value);
-  //   console.log(queres);
-  //   if (queres) {
-  //     setCurrencyOptions([queres]);
-  //   } else {
-  //     setCurrencyOptions([...currencyOptions]);
-  //   }
-  // };
+  const handSellleInputChange = name => {
+    const value = name.toLowerCase();
+    const queres = currencyOptionsToSell.filter(query =>
+      query.toLowerCase().includes(value)
+    );
+    if (name !== '') {
+      setCurrencyOptionstoSell([...queres]);
+    } else {
+      setCurrencyOptionstoSell([...optionsFreez.current]);
+    }
+  };
+
+  const handBuyleInputChange = name => {
+    const value = name.toLowerCase();
+    const queres = currencyOptionsToBuy.filter(query =>
+      query.toLowerCase().includes(value)
+    );
+    if (name !== '') {
+      setCurrencyOptionsToBuy([...queres]);
+    } else {
+      setCurrencyOptionsToBuy([...optionsFreez.current]);
+    }
+  };
 
   return (
     <SC.Wrap>
@@ -89,25 +106,25 @@ export const CurrencyExchangePage = () => {
       </SC.MainText>
       <CurrencyRate maineCurrency={maineCurrency} />
       <Exchange
-        currencyOptions={currencyOptions}
+        currencyOptions={currencyOptionsToSell}
         selectedCurrency={sellCurrency}
         onChange={setSellCurrency} // Responsible for currency to sell selected manually
         amount={amountToSell}
         onValueChange={toSellHandleChange}
         type={'Sell: '}
-        // handleInputChange={handleInputChange}
+        handleInputChange={handSellleInputChange}
       />
       <SC.Equal>
         <FcCalculator size="42" />
       </SC.Equal>
       <Exchange
-        currencyOptions={currencyOptions}
+        currencyOptions={currencyOptionsToBuy}
         selectedCurrency={buyCurrency}
         onChange={setBuyCurrency} // Responsible for currency to buy selected manually
         amount={amountToBuy}
         onValueChange={toBuyHandleChange}
         type={'Buy: '}
-        // handleInputChange={handleInputChange}
+        handleInputChange={handBuyleInputChange}
       />
     </SC.Wrap>
   );

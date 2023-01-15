@@ -9,8 +9,18 @@ export const Exchange = ({
   amount,
   onValueChange,
   type,
-  // handleInputChange,
+  handleInputChange,
 }) => {
+  const onHandleInputChange = evt => {
+    const { value } = evt.target;
+    handleInputChange(value);
+  };
+
+  const onHandleSelectChange = evt => {
+    const { value } = evt.target;
+    onChange(value);
+  };
+
   return (
     <>
       <SC.ExchangeSection>
@@ -25,7 +35,7 @@ export const Exchange = ({
         </SC.ExchangeLabel>
         <SC.ExchangeSelect
           value={selectedCurrency}
-          onChange={evt => onChange(evt.target.value)}
+          onChange={onHandleSelectChange}
         >
           {currencyOptions.map(currency => (
             <SC.ExchangeOptions key={currency} value={currency}>
@@ -33,11 +43,12 @@ export const Exchange = ({
             </SC.ExchangeOptions>
           ))}
         </SC.ExchangeSelect>
+        <SC.Input
+          type="text"
+          placeholder="UAH..."
+          onChange={onHandleInputChange}
+        />
       </SC.ExchangeSection>
-      {/* <input
-        type="text"
-        onChange={evt => handleInputChange(evt.target.value)}
-      /> */}
     </>
   );
 };

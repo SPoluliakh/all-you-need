@@ -44,7 +44,7 @@ export const theme = Object.freeze({
   },
   borders: {
     none: 'none',
-    phonebook: '2px solid  black',
+    phonebook: '1px solid  black',
     contactForm: '1px dashed black',
     headerBorder: '2px solid  brown',
   },

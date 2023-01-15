@@ -44,3 +44,13 @@ export const ExchangeOptions = styled.option`
   font-family: -apple-system, BlinkMacSystemFont, Caveat, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 `;
+
+export const Input = styled.input`
+  width: 35px;
+  margin-left: ${p => p.theme.space[3]}px;
+  background-color: transparent;
+  border: ${p => p.theme.borders.none};
+  border-bottom: ${p => p.theme.borders.phonebook};
+  font-family: -apple-system, BlinkMacSystemFont, Caveat, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+`;
