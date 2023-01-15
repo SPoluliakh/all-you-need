@@ -21,6 +21,8 @@ export const ExchangeInput = styled.input`
   border: ${p => p.theme.borders.none};
   box-shadow: ${p => p.theme.shadows.wrapShadow};
   background-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, Caveat, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 `;
 
 export const ExchangeSelect = styled.select`
@@ -33,4 +35,12 @@ export const ExchangeSelect = styled.select`
   box-shadow: ${p => p.theme.shadows.wrapShadow};
   margin-left: ${p => p.theme.space[2]}px;
   background-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, Caveat, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+`;
+
+export const ExchangeOptions = styled.option`
+  background-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, Caveat, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 `;

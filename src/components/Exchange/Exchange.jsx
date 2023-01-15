@@ -5,6 +5,7 @@ import {
   ExchangeLabel,
   ExchangeInput,
   ExchangeSelect,
+  ExchangeOptions,
 } from './Exchange.Styled';
 
 export const Exchange = ({
@@ -32,9 +33,9 @@ export const Exchange = ({
           onChange={evt => onChange(evt.target.value)}
         >
           {currencyOptions.map(currency => (
-            <option key={currency} value={currency}>
+            <ExchangeOptions key={currency} value={currency}>
               {currency}
-            </option>
+            </ExchangeOptions>
           ))}
         </ExchangeSelect>
       </ExchangeSection>
