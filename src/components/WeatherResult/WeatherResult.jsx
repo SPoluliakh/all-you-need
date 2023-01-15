@@ -83,15 +83,13 @@ export const WeatherResult = () => {
             />
             <p>Tempreture: {Math.round(weather.main.temp)}</p>
           </div>
-
+          <p>Description: {weather.weather[0].description}</p>
           <p>
             Feels_like:
             {Math.round(weather.main.temp)}
           </p>
-          <p>Max: {Math.round(weather.main.temp_max)}</p>
-          <p>Min: {Math.round(weather.main.temp_min)}</p>
           <p>Wind speed: {weather.wind.speed} m/s</p>
-          <p>Description: {weather.weather[0].description}</p>
+
           <p>Pressure: {weather.main.pressure}</p>
           <p>Latitude: {weather.coord.lat}</p>
           <p>Longitude: {weather.coord.lon}</p>
