@@ -1,23 +1,23 @@
 import PropTypes from 'prop-types';
-import { Header, Wrap, Text, Rate } from './CurrencyRate.styled';
+import * as SC from './CurrencyRate.styled';
 
 export const CurrencyRate = ({ maineCurrency }) => {
   return (
     <>
-      <Header>
-        <Wrap>
-          <Text> UAH</Text>
-          <Rate>{maineCurrency[0]}</Rate>
-        </Wrap>
-        <Wrap>
-          <Text> EUR</Text>
-          <Rate>{maineCurrency[1]}</Rate>
-        </Wrap>
-        <Wrap>
-          <Text> GBP</Text>
-          <Rate>{maineCurrency[2]}</Rate>
-        </Wrap>
-      </Header>
+      <SC.Header>
+        <SC.Wrap>
+          <SC.Text> UAH</SC.Text>
+          <SC.Rate>{maineCurrency[0]}</SC.Rate>
+        </SC.Wrap>
+        <SC.Wrap>
+          <SC.Text> EUR</SC.Text>
+          <SC.Rate>{maineCurrency[1]}</SC.Rate>
+        </SC.Wrap>
+        <SC.Wrap>
+          <SC.Text> GBP</SC.Text>
+          <SC.Rate>{maineCurrency[2]}</SC.Rate>
+        </SC.Wrap>
+      </SC.Header>
     </>
   );
 };

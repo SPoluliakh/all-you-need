@@ -7,6 +7,8 @@ import {
   getWeatherByGeoPosition,
 } from '../../Utils/weatherApi';
 
+import * as SC from './WeatherResult.styled';
+
 export const WeatherResult = () => {
   const [locationEroor, setLocationEroor] = useState(null);
   const [status, setStatus] = useState('idle');
@@ -43,7 +45,7 @@ export const WeatherResult = () => {
     const { value } = evt.target;
     setSearchParams(value !== '' ? { city: value } : {});
   };
-  console.log(weather);
+
   const handleSubmit = evt => {
     evt.preventDefault();
     setStatus('pending');
@@ -59,7 +61,8 @@ export const WeatherResult = () => {
   };
 
   return (
-    <>
+    <SC.Wrap>
+      <SC.MainTitle>Weather 🌤</SC.MainTitle>
       {locationEroor && (
         <h2>
           Please enable geolocation to automatically provide weather for your
@@ -73,28 +76,28 @@ export const WeatherResult = () => {
       />
       {status === 'fulfilled' && (
         <div>
-          <p>
+          <SC.Text>
             Location: {weather.name}, {weather.sys.country}
-          </p>
-          <div>
+          </SC.Text>
+          <SC.InnerWrap>
             <img
               src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
               alt=""
             />
-            <p>Tempreture: {Math.round(weather.main.temp)}</p>
-          </div>
-          <p>Description: {weather.weather[0].description}</p>
-          <p>
+            <SC.Text>Tempreture: {Math.round(weather.main.temp)} °C </SC.Text>
+          </SC.InnerWrap>
+          <SC.Text>Description: {weather.weather[0].description}</SC.Text>
+          <SC.Text>
             Feels_like:
-            {Math.round(weather.main.temp)}
-          </p>
-          <p>Wind speed: {weather.wind.speed} m/s</p>
+            {Math.round(weather.main.temp)} °C
+          </SC.Text>
+          <SC.Text>Wind speed: {weather.wind.speed} m/s</SC.Text>
 
-          <p>Pressure: {weather.main.pressure}</p>
-          <p>Latitude: {weather.coord.lat}</p>
-          <p>Longitude: {weather.coord.lon}</p>
+          <SC.Text>Pressure: {weather.main.pressure}</SC.Text>
+          <SC.Text>Latitude: {weather.coord.lat}</SC.Text>
+          <SC.Text>Longitude: {weather.coord.lon}</SC.Text>
         </div>
       )}
-    </>
+    </SC.Wrap>
   );
 };

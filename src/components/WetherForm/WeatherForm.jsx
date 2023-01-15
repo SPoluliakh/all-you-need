@@ -15,7 +15,7 @@ export const WeatherForm = ({ name, onChange, onSubmit }) => {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <SC.Form onSubmit={onSubmit}>
         <label>
           <SC.FormInput
             ref={inputRef}
@@ -31,7 +31,7 @@ export const WeatherForm = ({ name, onChange, onSubmit }) => {
         <SC.FormButton type="button" onClick={handleInputClean}>
           <BsXLg size="24" />
         </SC.FormButton>
-      </form>
+      </SC.Form>
     </>
   );
 };

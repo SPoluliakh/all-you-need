@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const Form = styled.form`
+  position: relative;
+`;
+
 export const FormInput = styled.input`
   padding: ${p => p.theme.space[2]}px ${p => p.theme.space[4]}px;
 
@@ -10,6 +14,12 @@ export const FormInput = styled.input`
   border-bottom-left-radius: ${p => p.theme.radii.sadVew};
   border-top-right-radius: ${p => p.theme.radii.sadVew};
   border-bottom-right-radius: ${p => p.theme.radii.sadVew};
+  ::placeholder {
+    font-family: -apple-system, BlinkMacSystemFont, Caveat, Segoe UI, Roboto,
+      Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+      sans-serif;
+    font-size: ${p => p.theme.fontSizes.ml}px;
+  }
 `;
 
 export const FormButton = styled.button`
@@ -21,18 +31,18 @@ export const FormButton = styled.button`
 
   color: ${p => p.theme.colors.headerBcg};
 
-  /* position: absolute; */
-  /* top: ${() => '96px'};
+  position: absolute;
+  top: ${() => '7px'};
   left: ${p => {
     if (p.type === 'submit') {
-      return '70px';
+      return '4px';
     }
   }};
   right: ${p => {
     if (p.type === 'button') {
-      return '780px';
+      return '7px';
     }
-  }}; */
+  }};
 
   transition: scale 250ms linear;
   :hover {

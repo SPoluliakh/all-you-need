@@ -1,12 +1,6 @@
 import PropTypes from 'prop-types';
 
-import {
-  ExchangeSection,
-  ExchangeLabel,
-  ExchangeInput,
-  ExchangeSelect,
-  ExchangeOptions,
-} from './Exchange.Styled';
+import * as SC from './Exchange.Styled';
 
 export const Exchange = ({
   currencyOptions,
@@ -15,30 +9,35 @@ export const Exchange = ({
   amount,
   onValueChange,
   type,
+  // handleInputChange,
 }) => {
   return (
     <>
-      <ExchangeSection>
-        <ExchangeLabel>
+      <SC.ExchangeSection>
+        <SC.ExchangeLabel>
           {type}
-          <ExchangeInput
+          <SC.ExchangeInput
             type="number"
             value={amount}
             onChange={onValueChange}
             min={0}
           />
-        </ExchangeLabel>
-        <ExchangeSelect
+        </SC.ExchangeLabel>
+        <SC.ExchangeSelect
           value={selectedCurrency}
           onChange={evt => onChange(evt.target.value)}
         >
           {currencyOptions.map(currency => (
-            <ExchangeOptions key={currency} value={currency}>
+            <SC.ExchangeOptions key={currency} value={currency}>
               {currency}
-            </ExchangeOptions>
+            </SC.ExchangeOptions>
           ))}
-        </ExchangeSelect>
-      </ExchangeSection>
+        </SC.ExchangeSelect>
+      </SC.ExchangeSection>
+      {/* <input
+        type="text"
+        onChange={evt => handleInputChange(evt.target.value)}
+      /> */}
     </>
   );
 };

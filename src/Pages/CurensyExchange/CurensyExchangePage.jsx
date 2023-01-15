@@ -1,11 +1,9 @@
-// import * as SC from './CurensyExchangePage.styled';
-
 import React, { useState, useEffect } from 'react';
 import { FcCalculator, FcCurrencyExchange } from 'react-icons/fc';
-import { fetch } from '../../components/Fetch/fetch';
+import { fetch } from '../../Utils/currencyApi';
 import { Exchange } from '../../components/Exchange/Exchange';
 import { CurrencyRate } from '../../components/CurrencyRate/CurrencyRates';
-import { MainText, Equal, Wrap } from './CurensyExchangePage.styled';
+import * as SC from './CurensyExchangePage.styled';
 
 export const CurrencyExchangePage = () => {
   const [currencyOptions, setCurrencyOptions] = useState([]); // Responsible for avaible currency options
@@ -72,12 +70,23 @@ export const CurrencyExchangePage = () => {
     setIsAmount(false);
   };
 
+  // const handleInputChange = name => {
+  //   const value = name.toLowerCase();
+  //   const queres = currencyOptions.find(query => query.toLowerCase() === value);
+  //   console.log(queres);
+  //   if (queres) {
+  //     setCurrencyOptions([queres]);
+  //   } else {
+  //     setCurrencyOptions([...currencyOptions]);
+  //   }
+  // };
+
   return (
-    <Wrap>
-      <MainText>
+    <SC.Wrap>
+      <SC.MainText>
         Currency converter
         <FcCurrencyExchange size="32" />
-      </MainText>
+      </SC.MainText>
       <CurrencyRate maineCurrency={maineCurrency} />
       <Exchange
         currencyOptions={currencyOptions}
@@ -86,10 +95,11 @@ export const CurrencyExchangePage = () => {
         amount={amountToSell}
         onValueChange={toSellHandleChange}
         type={'Sell: '}
+        // handleInputChange={handleInputChange}
       />
-      <Equal>
+      <SC.Equal>
         <FcCalculator size="42" />
-      </Equal>
+      </SC.Equal>
       <Exchange
         currencyOptions={currencyOptions}
         selectedCurrency={buyCurrency}
@@ -97,7 +107,8 @@ export const CurrencyExchangePage = () => {
         amount={amountToBuy}
         onValueChange={toBuyHandleChange}
         type={'Buy: '}
+        // handleInputChange={handleInputChange}
       />
-    </Wrap>
+    </SC.Wrap>
   );
 };
