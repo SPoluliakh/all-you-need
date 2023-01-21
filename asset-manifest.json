@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/helper/static/css/main.f0e52497.css",
-    "main.js": "/helper/static/js/main.cf9aa8cf.js",
+    "main.js": "/helper/static/js/main.4905d378.js",
     "static/js/315.4be8f97f.chunk.js": "/helper/static/js/315.4be8f97f.chunk.js",
-    "static/js/80.68df824a.chunk.js": "/helper/static/js/80.68df824a.chunk.js",
+    "static/js/80.6e60f431.chunk.js": "/helper/static/js/80.6e60f431.chunk.js",
     "static/js/251.3548ee03.chunk.js": "/helper/static/js/251.3548ee03.chunk.js",
     "static/js/421.9d4d061e.chunk.js": "/helper/static/js/421.9d4d061e.chunk.js",
     "static/js/126.fa86e2d2.chunk.js": "/helper/static/js/126.fa86e2d2.chunk.js",
-    "static/media/defoult-img.gif": "/helper/static/media/defoult-img.bf3586061a6f8d48177d.gif",
+    "static/media/pulp-fiction-john-travolta.gif": "/helper/static/media/pulp-fiction-john-travolta.59b46f4510af6cc07976.gif",
     "static/media/background.jpg": "/helper/static/media/background.73bc7b25d177931c0839.jpg",
     "static/media/currency.jpg": "/helper/static/media/currency.4c02bcfb756823eddefd.jpg",
     "index.html": "/helper/index.html",
     "main.f0e52497.css.map": "/helper/static/css/main.f0e52497.css.map",
-    "main.cf9aa8cf.js.map": "/helper/static/js/main.cf9aa8cf.js.map",
+    "main.4905d378.js.map": "/helper/static/js/main.4905d378.js.map",
     "315.4be8f97f.chunk.js.map": "/helper/static/js/315.4be8f97f.chunk.js.map",
-    "80.68df824a.chunk.js.map": "/helper/static/js/80.68df824a.chunk.js.map",
+    "80.6e60f431.chunk.js.map": "/helper/static/js/80.6e60f431.chunk.js.map",
     "251.3548ee03.chunk.js.map": "/helper/static/js/251.3548ee03.chunk.js.map",
     "421.9d4d061e.chunk.js.map": "/helper/static/js/421.9d4d061e.chunk.js.map",
     "126.fa86e2d2.chunk.js.map": "/helper/static/js/126.fa86e2d2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f0e52497.css",
-    "static/js/main.cf9aa8cf.js"
+    "static/js/main.4905d378.js"
   ]
 }
