@@ -1,5 +1,5 @@
 import * as SC from './NoInfo.styled';
-import Gif from './defoult-img.gif';
+import Gif from './pulp-fiction-john-travolta.gif';
 
 export const NoInfo = () => {
   return (
